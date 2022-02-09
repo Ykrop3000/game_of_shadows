@@ -121,7 +121,7 @@ function Lights() {
     <spotLight
       ref={light}
       intensity={1}
-      position={[0, -4, 10]}
+      position={[0, -6, 10]}
       angle={0.5}
       penumbra={1}
       castShadow
@@ -173,7 +173,7 @@ function App() {
             modelConfig={models[modelNum]}
             nextLevel={win}
             rotation={[0, 0, 0]}
-            position={[0, -2, 4]}
+            position={[0, -3, 4]}
             canvasRef={canvasRef}
           />
 
