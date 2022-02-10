@@ -195,7 +195,7 @@ function ObjectControls(
       }
       return;
     }
-    mesh.rotation.x += Math.sign(deltaMove.y) * rotationSpeedTouchDevices;
+    mesh.rotation.x += (deltaMove.y / 10) * rotationSpeedTouchDevices;
     if (setRotationX) {
       setRotationX(mesh.rotation.x);
     }
@@ -221,7 +221,7 @@ function ObjectControls(
       }
       return;
     }
-    mesh.rotation.y += Math.sign(deltaMove.x) * rotationSpeedTouchDevices;
+    mesh.rotation.y += (deltaMove.x / 10) * rotationSpeedTouchDevices;
     if (setRotationY) {
       setRotationY(mesh.rotation.y);
     }
@@ -398,27 +398,28 @@ function ObjectControls(
       };
       previousMousePosition = { x: e.touches[0].pageX, y: e.touches[0].pageY };
 
-      if (horizontalRotationEnabled && deltaMove.x != 0) {
-        if (
-          !isWithinMaxAngle(
-            Math.sign(deltaMove.x) * rotationSpeedTouchDevices,
-            "y"
-          )
-        )
-          return;
+      if (horizontalRotationEnabled) {
+        // if (
+        //   !isWithinMaxAngle(
+        //     Math.sign(deltaMove.x) * rotationSpeedTouchDevices,
+        //     "y"
+        //   )
+        // )
+        //   return;
         rotateHorizontalTouch(deltaMove, mesh);
       }
 
-      if (verticalRotationEnabled && deltaMove.y != 0) {
-        if (
-          !isWithinMaxAngle(
-            Math.sign(deltaMove.y) * rotationSpeedTouchDevices,
-            "x"
-          )
-        )
-          return;
+      if (verticalRotationEnabled) {
+        // if (
+        //   !isWithinMaxAngle(
+        //     Math.sign(deltaMove.y) * rotationSpeedTouchDevices,
+        //     "x"
+        //   )
+        // )
+        // return;
         rotateVerticalTouch(deltaMove, mesh);
       }
+      console.log(deltaMove);
     }
   }
 
