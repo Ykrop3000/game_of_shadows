@@ -58,7 +58,20 @@ function Model(props) {
   // Проверяем угол
   const err = modelConfig.win.err;
   useEffect(() => {
-    console.log(rotateX, rotateY);
+    if (rotateX >= 2 * Math.PI) {
+      ref.current.children[0].rotation.x =
+        ref.current.children[0].rotation.x - 2 * Math.PI;
+    }
+    if (rotateY >= 2 * Math.PI) {
+      ref.current.children[0].rotation.y =
+        ref.current.children[0].rotation.y - 2 * Math.PI;
+    }
+
+    // console.log(
+    //   ref.current.children[0].rotation.x,
+    //   ref.current.children[0].rotation.y
+    // );
+    //console.log(ref.current.rotation.x, ref.current.rotation.y);
     if (
       rotateX >= modelConfig.win.x - err &&
       rotateX <= modelConfig.win.x + err &&
@@ -176,7 +189,7 @@ function App() {
             position={[0, -3, 4]}
             canvasRef={canvasRef}
           />
-
+          <directionalLight position={[2, 2, 2]} />
           <Wall position={[0, 0, -8]} rotation={[0.4, 0, 0]} />
           {/* <OrbitControls enableDamping={false} regress /> */}
         </Canvas>
