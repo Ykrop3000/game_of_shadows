@@ -419,7 +419,6 @@ function ObjectControls(
         // return;
         rotateVerticalTouch(deltaMove, mesh);
       }
-      console.log(deltaMove);
     }
   }
 
